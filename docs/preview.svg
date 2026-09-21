@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="500" viewBox="0 0 440 500" role="img" aria-labelledby="title desc">
+<title id="title">CA Plate Watch interface preview</title><desc id="desc">Illustrated menu bar panel with an example SUNSHNE plate, refresh control, and startup and notification settings.</desc>
+<rect width="440" height="500" rx="24" fill="#202329"/>
+<g font-family="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif">
+<rect x="24" y="28" width="64" height="34" rx="5" fill="#fafafa" stroke="#8b9bb0"/>
+<text x="56" y="40" text-anchor="middle" fill="#d54749" font-size="8">California</text>
+<text x="56" y="54" text-anchor="middle" fill="#243f64" font-size="13" font-weight="700">WATCH</text>
+<text x="101" y="43" fill="white" font-size="22" font-weight="700">CA Plate Watch</text>
+<text x="101" y="61" fill="#abb0bc" font-size="10">CALIFORNIA · EVERY 6 HOURS</text>
+<text x="399" y="53" text-anchor="middle" fill="#dde1e8" font-size="26">↻</text>
+<rect x="24" y="84" width="324" height="31" rx="6" fill="#30343d" stroke="#616977"/>
+<text x="34" y="104" fill="#abb0bc" font-size="13">Plate (e.g. SUNSHNE)</text>
+<rect x="357" y="84" width="59" height="31" rx="6" fill="#237de8"/>
+<text x="386" y="104" text-anchor="middle" fill="white" font-size="13">Add</text>
+<rect x="24" y="135" width="392" height="108" rx="12" fill="#30343d"/>
+<text x="39" y="165" fill="white" font-size="22" font-weight="700">SUNSHNE</text>
+<text x="39" y="191" fill="#dce0e8" font-size="12">Unavailable · watching for a change</text>
+<text x="39" y="211" fill="#abb0bc" font-size="11">Last confirmed: Today at 9:00 AM</text>
+<text x="39" y="230" fill="#abb0bc" font-size="11">Next check: Today at 3:00 PM</text>
+<path d="M24 344H416" stroke="#454b56"/>
+<text x="24" y="375" fill="#e4e7ed" font-size="14">Launch at login</text>
+<rect x="370" y="357" width="44" height="24" rx="12" fill="#237de8"/><circle cx="401" cy="369" r="9" fill="white"/>
+<text x="24" y="405" fill="#abb0bc" font-size="12">Notifications enabled</text>
+<text x="24" y="432" fill="#abb0bc" font-size="11">Checks resume after your Mac wakes.</text>
+<text x="24" y="470" fill="#69adff" font-size="12">Open California DMV ↗</text>
+<text x="414" y="470" text-anchor="end" fill="#c6ccd6" font-size="12">Quit</text>
+</g></svg>

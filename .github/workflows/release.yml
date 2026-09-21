@@ -1,0 +1,40 @@
+name: Package release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing version tag, for example v0.3.0
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  release:
+    runs-on: macos-15
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+          persist-credentials: false
+      - name: Run offline tests
+        run: swift run CAPlateWatchCoreTests
+      - name: Package both architectures
+        env:
+          CA_RELEASE_TAG: ${{ env.RELEASE_TAG }}
+        run: ./scripts/package-release.sh
+      - name: Create draft release with downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release create "$RELEASE_TAG" --verify-tag --draft \
+            --title "CA Plate Watch $RELEASE_TAG" \
+            --notes-file docs/RELEASE_NOTES.md \
+            dist/release/*.zip dist/release/SHA256SUMS.txt

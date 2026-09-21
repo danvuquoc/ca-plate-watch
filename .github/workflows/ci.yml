@@ -1,0 +1,29 @@
+name: Build and test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Show Swift version
+        run: swift --version
+      - name: Run offline tests
+        run: swift run CAPlateWatchCoreTests
+      - name: Build app
+        run: ./scripts/build-app.sh
+      - name: Verify app bundle
+        run: |
+          codesign --verify --strict 'dist/CA Plate Watch.app'
+          plutil -lint 'dist/CA Plate Watch.app/Contents/Info.plist'
