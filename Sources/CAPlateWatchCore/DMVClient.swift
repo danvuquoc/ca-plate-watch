@@ -21,16 +21,34 @@ public struct DMVClient {
     }
 
     public func check(_ text: String) async throws -> Availability {
-        let plate = try Plate(text: text)
+        try await check(Plate(text: text))
+    }
+
+    public func check(_ plate: Plate) async throws -> Availability {
         defer { session.finishTasksAndInvalidate() }
+        let fields = try Self.fields(for: plate)
         _ = try await request("initPers.do")
         _ = try await request("startPers.do", fields: ["acknowledged": "true", "_acknowledged": "on"])
-        let chars = Array(plate.text)
-        var fields = ["plateType": "R", "plateName": "Environmental", "plateNameLow": "environmental",
-                      "plateLength": "7", "vehicleType": "AUTO"]
-        for index in 0..<7 { fields["plateChar\(index)"] = index < chars.count ? String(chars[index]) : "" }
         let data = try await request("checkPers.do", fields: fields)
         return try Self.parse(data)
+    }
+
+    public static func fields(for plate: Plate) throws -> [String: String] {
+        try plate.validateSelection()
+        guard let design = plate.design else { throw CheckError.message("Unsupported plate design.") }
+        let chars = Array(plate.text)
+        var fields = ["plateType": design.id, "plateName": design.name, "plateNameLow": design.name.lowercased(),
+                      "plateLength": String(design.length), "vehicleType": plate.vehicleTypeID,
+                      "kidsPlate": chars.compactMap(KidsSymbol.matching).first?.rawValue ?? "",
+                      "vetDecalCd": plate.veteranDecalID ?? "",
+                      "vetDecalDesc": plate.veteranDecalID.flatMap { VeteranDecal.decal(id: $0)?.name } ?? ""]
+        // The DMV submits both input groups; six-character designs start at index 8.
+        for index in 0..<14 { fields["plateChar\(index)"] = "" }
+        let start = design.length == 6 ? 8 : 0
+        for (offset, character) in chars.enumerated() {
+            fields["plateChar\(start + offset)"] = KidsSymbol.matching(character) != nil ? "." : (character == " " ? "" : String(character))
+        }
+        return fields
     }
 
     private func request(_ path: String, fields: [String: String]? = nil) async throws -> Data {
@@ -44,7 +62,7 @@ public struct DMVClient {
         guard let http = response as? HTTPURLResponse, http.statusCode == 200,
               let finalURL = http.url, finalURL.host == base.host,
               finalURL.path.hasPrefix(base.path) else {
-            throw CheckError.message("DMV rejected or redirected the check. It may be down or require a browser verification. Next retry in six hours.")
+            throw CheckError.message("DMV rejected or redirected the check. It may be down or require a browser verification. Will retry at the next scheduled check.")
         }
         return data
     }
@@ -66,7 +84,7 @@ public struct DMVClient {
         switch code.uppercased() {
         case "AVAILABLE": return .available
         case "UNAVAILABLE", "NOT_AVAILABLE": return .unavailable
-        default: throw CheckError.message("DMV could not determine availability (\(code.prefix(80))). Next retry in six hours.")
+        default: throw CheckError.message("DMV could not determine availability (\(code.prefix(80))). Will retry at the next scheduled check.")
         }
     }
 }

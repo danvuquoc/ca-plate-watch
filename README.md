@@ -10,8 +10,10 @@ A native macOS menu bar app that watches California personalized license plates 
 
 ## Features
 
+- Watch Automobile, Commercial, Trailer, and Motorcycle personalized plates.
+- Choose from every design offered by the DMV online checker, including Kids symbols and Veterans’ Organization decals.
 - Add and remove plates from a saved watchlist.
-- Check each plate automatically every six hours.
+- Choose a global recheck interval of 1, 3, 6, 12, 24, or 48 hours (12 hours by default).
 - Recheck all plates using the refresh icon at the top right.
 - Receive macOS notifications for newly available plates.
 - See availability alerts directly in the custom license plate menu bar icon.
@@ -47,17 +49,22 @@ The build is locally ad-hoc signed and targets your Mac's architecture. It does 
 
 ## Usage
 
-Enter a plate with 2–7 letters, numbers, or spaces. Letters are capitalized; `/` represents a half-space. New plates are checked immediately.
+Choose a vehicle type and design, then enter a plate using the guidance below the input. Automobile and Commercial offer all 13 online designs; Motorcycle and Trailer offer Environmental only, matching the DMV’s current online form.
 
-The refresh icon checks every saved plate and shows a spinner while working. It is disabled during checks and when the watchlist is empty. Each plate's next automatic check is six hours after its most recent attempt.
+Letters are capitalized. Spaces preserve empty character positions; `/` represents a half-space, and two half-spaces cannot be adjacent. Six-character designs allow up to six positions. Seven-character designs allow an eighth position when a half-space is present. Kids plates require exactly one heart, star, hand, or plus symbol plus 2–6 letters/numbers; use the symbol buttons and move the symbol within the text as needed. Veterans’ Organization plates also require a decal selection.
+
+New plates are checked immediately. The same text can be watched for different vehicles and designs. Each row and availability notification identifies the vehicle and design. To change a saved selection, remove and re-add it.
+
+The refresh icon checks every saved plate and shows a spinner while working. It is disabled during checks and when the watchlist is empty. Use **Recheck every** to choose 1, 3, 6, 12, 24, or 48 hours for all plates. The default is 12 hours, including upgrades without a saved preference. Each deadline is measured from that plate’s most recent attempt. Changing the interval updates deadlines immediately; shortening it checks newly overdue entries, while an in-flight request finishes normally.
 
 The menu bar plate displays **CA** normally, a **checkmark and unread count** for new availability, and an **exclamation mark** for check errors. Use **Mark availability alerts as seen** to clear the unread indicator. Repeated available results do not send duplicate alerts.
 
 ## Limits
 
-- Supports standard personalized auto plates (Environmental design). Other designs and motorcycles are not configured.
+- The design catalog is bundled with the app, verified against DMV ipp2 version 84 on September 21, 2026. Future designs require an app update. See [catalog details](docs/DMV_CATALOG.md). Sequential and offline-only plates are excluded.
+- DMV currently requires mail-in applications for non-Environmental Motorcycle and Trailer designs; those combinations are not offered in this app.
 - The app must be running, and your Mac must be awake and online. Overdue checks resume once after wake or launch; the app does not wake your Mac.
-- Failed checks retain the last confirmed result and retry after six hours.
+- Failed checks retain the last confirmed result and retry at the selected interval.
 - Availability is not a reservation or final approval. Use **Open California DMV** to order.
 
 ## Privacy and local data
@@ -70,6 +77,8 @@ The watchlist and check timestamps are stored locally at:
 ~/Library/Application Support/CA Plate Watch/watchlist.json
 ```
 
+The interval is saved in macOS preferences (`recheckIntervalHours`). Existing watchlist entries become Automobile + Environmental without losing their IDs, results, timestamps, or unread alerts. Unknown saved vehicle/design identifiers remain in the file and display an unsupported-entry error; they are never silently checked as another selection.
+
 These files are outside the repository and are not included in builds. Earlier local versions' watchlists are imported automatically without overwriting an existing watchlist. The updated app identity may require you to allow notifications and enable launch at login again.
 
 ## Development
@@ -81,11 +90,11 @@ swift run CAPlateWatchCoreTests
 # Build a runnable app bundle
 ./scripts/build-app.sh
 
-# Optional: make one real DMV lookup for the example plate EMIRA
+# Optional: seven real lookups covering all vehicle types and distinct request formats
 CA_PLATE_WATCH_LIVE_TEST=1 swift run CAPlateWatchCoreTests
 ```
 
-The test runner works with Command Line Tools alone and does not require XCTest. Tests cover validation, scheduling, persistence, availability transitions, response handling, and the request flow using a local stub. GitHub Actions runs offline tests and verifies the app bundle on pushes and pull requests.
+The test runner works with Command Line Tools alone and does not require XCTest. Tests cover all 28 supported vehicle/design combinations, character and symbol rules, legacy decoding, unknown selections, every interval and changes during checking, availability transitions, response handling, and the request flow using a local stub. GitHub Actions runs offline tests and verifies the app bundle on pushes and pull requests.
 
 Source modules are `CAPlateWatch` (app/UI) and `CAPlateWatchCore` (plate model and DMV client). Quit the running app before replacing an installed build.
 

@@ -13,14 +13,18 @@ final class Store: ObservableObject {
     @Published var notificationStatus = ""
     @Published var notificationsAllowed = false
     @Published var notificationsDenied = false
+    @Published private(set) var recheckInterval: RecheckInterval
     var changed: (() -> Void)?
     private var timer: Timer?
     private var wakeObserver: NSObjectProtocol?
     @Published private(set) var running = false
     private var persistenceFailed = false
     private let file: URL
+    private let defaults: UserDefaults
 
-    init() {
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+        recheckInterval = RecheckInterval.load(from: defaults)
         file = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("CA Plate Watch/watchlist.json")
         do {
@@ -42,12 +46,12 @@ final class Store: ObservableObject {
         Task { await refreshNotifications(); await checkDue() }
     }
 
-    func add(_ text: String) -> Bool {
+    func add(_ text: String, vehicleType: VehicleType, designID: String, veteranDecalID: String? = nil) -> Bool {
         guard !persistenceFailed else { return false }
         do {
-            let plate = try Plate(text: text)
-            guard !plates.contains(where: { $0.text == plate.text }) else {
-                message = "That plate is already on your watchlist."
+            let plate = try Plate(text: text, vehicleType: vehicleType, designID: designID, veteranDecalID: veteranDecalID)
+            guard !plates.contains(where: { $0.matchesSelection(of: plate) }) else {
+                message = "That plate, vehicle type, and design are already on your watchlist."
                 return false
             }
             plates.append(plate)
@@ -82,13 +86,15 @@ final class Store: ObservableObject {
         running = true
         defer { running = false; checking = nil; changed?() }
         // Each plate has its own persisted deadline. Missed checks run once after wake.
-        let due = plates.filter { force || $0.isDue(at: Date()) }.map(\.id)
-        for id in due {
-            guard let plate = plates.first(where: { $0.id == id }) else { continue }
+        var attempted = Set<UUID>()
+        while let plate = CheckSchedule.nextPlate(in: plates, at: Date(), interval: recheckInterval.seconds,
+                                                  attempted: attempted, force: force) {
+            let id = plate.id
+            attempted.insert(id)
             checking = id
             changed?()
             let result: Result<Availability, Error>
-            do { result = .success(try await Checker.check(plate.text)) }
+            do { result = .success(try await Checker.check(plate)) }
             catch { result = .failure(error) }
             guard let index = plates.firstIndex(where: { $0.id == id }) else { continue }
             let alert = plates[index].record(result, at: Date())
@@ -97,10 +103,16 @@ final class Store: ObservableObject {
         }
     }
 
+    func setRecheckInterval(_ interval: RecheckInterval) {
+        recheckInterval = interval
+        defaults.set(interval.rawValue, forKey: RecheckInterval.preferenceKey)
+        Task { await checkDue() }
+    }
+
     func notify(_ plate: Plate) async {
         let content = UNMutableNotificationContent()
-        content.title = "\(plate.text) is available"
-        content.body = "The DMV checker reports availability. Open CA Plate Watch to visit the DMV and order."
+        content.title = plate.notificationTitle
+        content.body = plate.notificationBody
         content.sound = .default
         do {
             try await UNUserNotificationCenter.current().add(

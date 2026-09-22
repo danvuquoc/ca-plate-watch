@@ -1,27 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="500" viewBox="0 0 440 500" role="img" aria-labelledby="title desc">
-<title id="title">CA Plate Watch interface preview</title><desc id="desc">Illustrated menu bar panel with an example SUNSHNE plate, refresh control, and startup and notification settings.</desc>
-<rect width="440" height="500" rx="24" fill="#202329"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="650" viewBox="0 0 440 650" role="img" aria-labelledby="title desc">
+<title id="title">CA Plate Watch interface preview</title><desc id="desc">Illustrated menu bar panel with vehicle and design selectors, an example SUNSHNE plate, and a configurable interval set to 12 hours.</desc>
+<rect width="440" height="650" rx="24" fill="#202329"/>
 <g font-family="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif">
 <rect x="24" y="28" width="64" height="34" rx="5" fill="#fafafa" stroke="#8b9bb0"/>
 <text x="56" y="40" text-anchor="middle" fill="#d54749" font-size="8">California</text>
 <text x="56" y="54" text-anchor="middle" fill="#243f64" font-size="13" font-weight="700">WATCH</text>
 <text x="101" y="43" fill="white" font-size="22" font-weight="700">CA Plate Watch</text>
-<text x="101" y="61" fill="#abb0bc" font-size="10">CALIFORNIA · EVERY 6 HOURS</text>
+<text x="101" y="61" fill="#abb0bc" font-size="10">CALIFORNIA · EVERY 12 HOURS</text>
 <text x="399" y="53" text-anchor="middle" fill="#dde1e8" font-size="26">↻</text>
-<rect x="24" y="84" width="324" height="31" rx="6" fill="#30343d" stroke="#616977"/>
-<text x="34" y="104" fill="#abb0bc" font-size="13">Plate (e.g. SUNSHNE)</text>
-<rect x="357" y="84" width="59" height="31" rx="6" fill="#237de8"/>
-<text x="386" y="104" text-anchor="middle" fill="white" font-size="13">Add</text>
-<rect x="24" y="135" width="392" height="108" rx="12" fill="#30343d"/>
-<text x="39" y="165" fill="white" font-size="22" font-weight="700">SUNSHNE</text>
-<text x="39" y="191" fill="#dce0e8" font-size="12">Unavailable · watching for a change</text>
-<text x="39" y="211" fill="#abb0bc" font-size="11">Last confirmed: Today at 9:00 AM</text>
-<text x="39" y="230" fill="#abb0bc" font-size="11">Next check: Today at 3:00 PM</text>
-<path d="M24 344H416" stroke="#454b56"/>
-<text x="24" y="375" fill="#e4e7ed" font-size="14">Launch at login</text>
-<rect x="370" y="357" width="44" height="24" rx="12" fill="#237de8"/><circle cx="401" cy="369" r="9" fill="white"/>
-<text x="24" y="405" fill="#abb0bc" font-size="12">Notifications enabled</text>
-<text x="24" y="432" fill="#abb0bc" font-size="11">Checks resume after your Mac wakes.</text>
-<text x="24" y="470" fill="#69adff" font-size="12">Open California DMV ↗</text>
-<text x="414" y="470" text-anchor="end" fill="#c6ccd6" font-size="12">Quit</text>
+<text x="24" y="103" fill="#e4e7ed" font-size="13">Vehicle</text>
+<rect x="90" y="84" width="326" height="29" rx="6" fill="#30343d" stroke="#616977"/>
+<text x="102" y="103" fill="#e4e7ed" font-size="13">Automobile</text><text x="397" y="103" fill="#abb0bc" font-size="13">⌄</text>
+<text x="24" y="143" fill="#e4e7ed" font-size="13">Design</text>
+<rect x="90" y="124" width="326" height="29" rx="6" fill="#30343d" stroke="#616977"/>
+<text x="102" y="143" fill="#e4e7ed" font-size="13">California 1960s Legacy</text><text x="397" y="143" fill="#abb0bc" font-size="13">⌄</text>
+<rect x="24" y="170" width="324" height="31" rx="6" fill="#30343d" stroke="#616977"/>
+<text x="34" y="190" fill="#abb0bc" font-size="13">Plate (e.g. EMIRA)</text>
+<rect x="357" y="170" width="59" height="31" rx="6" fill="#237de8"/>
+<text x="386" y="190" text-anchor="middle" fill="white" font-size="13">Add</text>
+<text x="24" y="221" fill="#abb0bc" font-size="11">2–7 letters/numbers. Spaces allowed; / is a half-space.</text>
+<rect x="24" y="243" width="392" height="130" rx="12" fill="#30343d"/>
+<text x="39" y="272" fill="white" font-size="22" font-weight="700">SUNSHNE</text>
+<text x="39" y="294" fill="#abb0bc" font-size="11">Automobile · California 1960s Legacy</text>
+<text x="39" y="319" fill="#dce0e8" font-size="12">Unavailable · watching for a change</text>
+<text x="39" y="339" fill="#abb0bc" font-size="11">Last confirmed: Today at 9:00 AM</text>
+<text x="39" y="359" fill="#abb0bc" font-size="11">Next check: Today at 9:00 PM</text>
+<path d="M24 434H416" stroke="#454b56"/>
+<text x="24" y="465" fill="#e4e7ed" font-size="14">Recheck every</text>
+<rect x="278" y="446" width="138" height="28" rx="6" fill="#30343d" stroke="#616977"/>
+<text x="290" y="465" fill="#e4e7ed" font-size="13">12 hours</text><text x="397" y="465" fill="#abb0bc" font-size="13">⌄</text>
+<text x="24" y="508" fill="#e4e7ed" font-size="14">Launch at login</text>
+<rect x="370" y="490" width="44" height="24" rx="12" fill="#237de8"/><circle cx="401" cy="502" r="9" fill="white"/>
+<text x="24" y="545" fill="#abb0bc" font-size="12">Notifications enabled</text>
+<text x="24" y="575" fill="#abb0bc" font-size="11">Checks resume after your Mac wakes.</text>
+<text x="24" y="618" fill="#69adff" font-size="12">Open California DMV ↗</text>
+<text x="414" y="618" text-anchor="end" fill="#c6ccd6" font-size="12">Quit</text>
 </g></svg>
