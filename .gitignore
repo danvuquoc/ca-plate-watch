@@ -4,6 +4,8 @@ dist/
 .swiftpm/
 .vscode/
 *.xcuserstate
+**/xcuserdata/
+DerivedData/
 .env
 .env.*
 *.p12

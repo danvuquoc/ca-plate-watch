@@ -1,0 +1,29 @@
+name: CAPlateWatchiOS
+options:
+  bundleIdPrefix: local.CAPlateWatch
+  deploymentTarget:
+    iOS: "18.7"
+packages:
+  CAPlateWatch:
+    path: ..
+targets:
+  CAPlateWatchiOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: CAPlateWatchiOS
+    dependencies:
+      - package: CAPlateWatch
+        product: CAPlateWatchCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: local.CAPlateWatch.iOS
+        PRODUCT_NAME: CA Plate Watch
+        SWIFT_VERSION: 5.0
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: CAPlateWatchiOS/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+    scheme:
+      testTargets: []

@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A9E69610E1BE21089B82A88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4577AE67849000E8CBE178 /* Assets.xcassets */; };
+		606D7928573B10AA4F48E0DE /* CAPlateWatchCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3EC8BC19AFD30C3388C28C63 /* CAPlateWatchCore */; };
+		66C06944AF09C2AE7D5AF4EA /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98DC8C2CCC34FD3C8745BB8 /* WatchView.swift */; };
+		E74B46D764175B6E882E1284 /* CAPlateWatchiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76D4664B46342B047E911E4 /* CAPlateWatchiOSApp.swift */; };
+		F27B68D1AC9B0B22ED75A58D /* WatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C816B11A436116ED3383CCC /* WatchStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C816B11A436116ED3383CCC /* WatchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStore.swift; sourceTree = "<group>"; };
+		298E78BEAB97CAFB9105D4F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4F4577AE67849000E8CBE178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2FA50A84329F006BE4177BD /* california-plate-checker */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "california-plate-checker"; path = ..; sourceTree = SOURCE_ROOT; };
+		BCBC48CBB6A8C7E5D2FC5E83 /* CAPlateWatchiOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CAPlateWatchiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D98DC8C2CCC34FD3C8745BB8 /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
+		E76D4664B46342B047E911E4 /* CAPlateWatchiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAPlateWatchiOSApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FBD63CEDC207F6D2DA91323 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				606D7928573B10AA4F48E0DE /* CAPlateWatchCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		162915981788BF3A78588830 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA50A84329F006BE4177BD /* california-plate-checker */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		1E7AF94E925929CACF43EB90 /* CAPlateWatchiOS */ = {
+			isa = PBXGroup;
+			children = (
+				4F4577AE67849000E8CBE178 /* Assets.xcassets */,
+				E76D4664B46342B047E911E4 /* CAPlateWatchiOSApp.swift */,
+				298E78BEAB97CAFB9105D4F9 /* Info.plist */,
+				1C816B11A436116ED3383CCC /* WatchStore.swift */,
+				D98DC8C2CCC34FD3C8745BB8 /* WatchView.swift */,
+			);
+			path = CAPlateWatchiOS;
+			sourceTree = "<group>";
+		};
+		A7650659D43E55875CF9A262 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCBC48CBB6A8C7E5D2FC5E83 /* CAPlateWatchiOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA6C55174F1DD07878744E15 = {
+			isa = PBXGroup;
+			children = (
+				1E7AF94E925929CACF43EB90 /* CAPlateWatchiOS */,
+				162915981788BF3A78588830 /* Packages */,
+				A7650659D43E55875CF9A262 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A6B63781807B344687A34B88 /* CAPlateWatchiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 919351AE45D936E0342C8439 /* Build configuration list for PBXNativeTarget "CAPlateWatchiOS" */;
+			buildPhases = (
+				E9E51B0C1052F897EB791AA2 /* Sources */,
+				F4D2D14AEB61B900D2DC2F26 /* Resources */,
+				4FBD63CEDC207F6D2DA91323 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CAPlateWatchiOS;
+			packageProductDependencies = (
+				3EC8BC19AFD30C3388C28C63 /* CAPlateWatchCore */,
+			);
+			productName = CAPlateWatchiOS;
+			productReference = BCBC48CBB6A8C7E5D2FC5E83 /* CAPlateWatchiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5412449862AFF920DE058000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A6B63781807B344687A34B88 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7946B5B0EB1D08D059597C51 /* Build configuration list for PBXProject "CAPlateWatchiOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DA6C55174F1DD07878744E15;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				48AD78EB623AA5E489FCC3DE /* XCLocalSwiftPackageReference ".." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A7650659D43E55875CF9A262 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6B63781807B344687A34B88 /* CAPlateWatchiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4D2D14AEB61B900D2DC2F26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A9E69610E1BE21089B82A88 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9E51B0C1052F897EB791AA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E74B46D764175B6E882E1284 /* CAPlateWatchiOSApp.swift in Sources */,
+				F27B68D1AC9B0B22ED75A58D /* WatchStore.swift in Sources */,
+				66C06944AF09C2AE7D5AF4EA /* WatchView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		19182680B1E71A24115401A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CAPlateWatchiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = local.CAPlateWatch.iOS;
+				PRODUCT_NAME = "CA Plate Watch";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		93A9940496FD8401927EE47F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DB966A79C73B57A4885C1770 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CAPlateWatchiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = local.CAPlateWatch.iOS;
+				PRODUCT_NAME = "CA Plate Watch";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F6C6E80028C5A3E7DFD921E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7946B5B0EB1D08D059597C51 /* Build configuration list for PBXProject "CAPlateWatchiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6C6E80028C5A3E7DFD921E8 /* Debug */,
+				93A9940496FD8401927EE47F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		919351AE45D936E0342C8439 /* Build configuration list for PBXNativeTarget "CAPlateWatchiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB966A79C73B57A4885C1770 /* Debug */,
+				19182680B1E71A24115401A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		48AD78EB623AA5E489FCC3DE /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3EC8BC19AFD30C3388C28C63 /* CAPlateWatchCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CAPlateWatchCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5412449862AFF920DE058000 /* Project object */;
+}

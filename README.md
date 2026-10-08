@@ -1,6 +1,8 @@
 # CA Plate Watch
 
-A native macOS menu bar app that watches California personalized license plates and alerts you when a plate becomes available. Built with Swift and SwiftUI.
+A native macOS menu bar app and iPhone app that watch California personalized license plates and alert you when a plate becomes available. Built with Swift and SwiftUI.
+
+For iPhone installation and background-check behavior, see the [iOS app guide](iOS/README.md). The Mac and iPhone apps keep separate local watchlists.
 
 **Unofficial project. Not affiliated with or endorsed by the California DMV.**
 
@@ -8,7 +10,7 @@ A native macOS menu bar app that watches California personalized license plates 
 
 *Interface illustration with an example plate.*
 
-## Features
+## macOS features
 
 - Watch Automobile, Commercial, Trailer, and Motorcycle personalized plates.
 - Choose from every design offered by the DMV online checker, including Kids symbols and Veterans’ Organization decals.
@@ -19,7 +21,7 @@ A native macOS menu bar app that watches California personalized license plates 
 - See availability alerts directly in the custom license plate menu bar icon.
 - Optionally launch at login.
 
-## Download and install
+## Download and install on macOS
 
 Download the ZIP for your Mac from the [GitHub Releases page](https://github.com/danvuquoc/ca-plate-watch/releases):
 
@@ -45,7 +47,7 @@ Requires macOS 13 or later and a Swift 6 or newer toolchain, provided by a compa
 4. Open the app and click its license plate icon in the menu bar.
 5. Enable notifications and, optionally, **Launch at login**.
 
-The build is locally ad-hoc signed and targets your Mac's architecture. It does not produce a notarized download. CI builds and runs offline tests on Apple Silicon and Intel runners; the macOS 13 minimum still needs validation on a machine running that version.
+The build is locally ad-hoc signed and targets your Mac's architecture. It does not produce a notarized download. CI builds and runs offline tests on Apple Silicon and Intel runners, and builds the iPhone app for an iOS simulator; the macOS 13 minimum still needs validation on a machine running that version.
 
 ## Usage
 
@@ -69,7 +71,7 @@ The menu bar plate displays **CA** normally, a **checkmark and unread count** fo
 
 ## Privacy and local data
 
-Plate queries go directly from your Mac to the California DMV over HTTPS. There is no app-operated server, analytics, advertising, or telemetry.
+Plate queries go directly from your device to the California DMV over HTTPS. There is no app-operated server, analytics, advertising, or telemetry.
 
 The watchlist and check timestamps are stored locally at:
 
@@ -94,7 +96,7 @@ swift run CAPlateWatchCoreTests
 CA_PLATE_WATCH_LIVE_TEST=1 swift run CAPlateWatchCoreTests
 ```
 
-The test runner works with Command Line Tools alone and does not require XCTest. Tests cover all 28 supported vehicle/design combinations, character and symbol rules, legacy decoding, unknown selections, every interval and changes during checking, availability transitions, response handling, and the request flow using a local stub. GitHub Actions runs offline tests and verifies the app bundle on pushes and pull requests.
+The test runner works with Command Line Tools alone and does not require XCTest. Tests cover all 28 supported vehicle/design combinations, character and symbol rules, legacy decoding, unknown selections, every interval and changes during checking, availability transitions, response handling, and the request flow using a local stub. GitHub Actions runs offline tests, verifies the Mac app bundle, and builds the iPhone app for a simulator on pushes and pull requests. The iOS CI job checks compilation; it does not launch the app or test background refresh.
 
 Source modules are `CAPlateWatch` (app/UI) and `CAPlateWatchCore` (plate model and DMV client). Quit the running app before replacing an installed build.
 

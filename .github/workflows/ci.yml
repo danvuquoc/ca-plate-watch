@@ -27,3 +27,22 @@ jobs:
         run: |
           codesign --verify --strict 'dist/CA Plate Watch.app'
           plutil -lint 'dist/CA Plate Watch.app/Contents/Info.plist'
+  ios:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Show Xcode version
+        run: xcodebuild -version
+      - name: Build iPhone app for simulator
+        run: |
+          xcodebuild \
+            -project iOS/CAPlateWatchiOS.xcodeproj \
+            -scheme CAPlateWatchiOS \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
